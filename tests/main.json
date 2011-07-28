@@ -1,0 +1,27 @@
+[
+    {
+        "method": "account/create",
+        "input": {
+            "data": {
+                "email": "$email",
+                "password": "my1337password"
+            }
+        },
+        "output": {"status": "success", "session_id": "$session_id", "data": {"account_id": "$account_id"}}
+    },
+    "@include:account",
+    {
+        "method": "logout",
+        "input": {
+            "session_id": "$session_id"
+        },
+        "output": {"status": "success"}
+    },
+    {
+        "method": "account",
+        "input": {
+            "session_id": "$session_id"
+        },
+        "output": {"status": "failure", "data": {"error_code": 1, "error_msg": "invalid session"}}
+    }
+]

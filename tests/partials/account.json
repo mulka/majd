@@ -1,0 +1,7 @@
+{
+    "method": "account",
+    "input": {
+        "session_id": "$session_id"
+    },
+    "output": {"status": "success", "data": {"email": "...", "status": "inactive"}}
+}
