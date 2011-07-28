@@ -1,0 +1,7 @@
+MAJD - My Awesome JSON Debugger
+
+MAJD is a utility used to test a JSON API. The kind of JSON API it supports right now is where you do an HTTP POST with a JSON document as the body of the request. Then, the server responds with another JSON document as the response body. Different methods are specified via URL.
+
+To use, run test.py on the command line. It will run through all the tests in the tests directory. If the tests pass, this will output nothing. As soon as one fails, it will stop and display the error.
+
+The tests directory should contain the tests you want to run. As an example, look at main.json which contains a single JSON array with one method call per position in the array. MAJD will POST the input JSON to the URL constructed using the method name. It will then will run a smart JSON diff between the actual output and the expected output. If the two don't match, MAJD will stop and report an error.
