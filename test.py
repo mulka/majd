@@ -13,15 +13,10 @@ from data_diff import data_diff
 
 BASE_URL = 'http://localhost:8000/'
 
-def call(base_url, method, session_id=None, data=None):
+def call(base_url, method, input):
     url = base_url + method
     headers = {'Content-Type': 'application/json'}
-    values = {}
-    if data:
-        values['data'] = data
-    if session_id:
-        values['session_id'] = session_id
-    body = json.dumps(values)
+    body = json.dumps(input)
     #print 'IN: ' + body
     req = urllib2.Request(url, body, headers)
     response = None
@@ -61,17 +56,7 @@ def run_test(base_url, filename):
         except:
             input = {}
         
-        try:
-            session_id = input['session_id']
-        except:
-            session_id = None
-            
-        try:
-            data = input['data']
-        except:
-            data = None
-            
-        actual_output_str = call(base_url, step['method'], session_id=session_id, data=data)
+        actual_output_str = call(base_url, step['method'], input)
         try:
             actual_output = json.loads(actual_output_str)
         except Exception, e:
