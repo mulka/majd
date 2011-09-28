@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 import os
 import re
-import json
+try:
+    import json
+except:
+    import simplejson as json
 
 def jwi_helper(f, input):
     if isinstance(input, dict):
