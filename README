@@ -1,5 +1,7 @@
 MAJD - My Awesome JSON Debugger
 
+NOTE: I built this, and it was useful to me for a while. But, I realized there are a lot of situations in testing where you want an actual programming language to write tests with and can't get away with just sending static input and comparing expected output exactly. So, I would recommend using something else for testing, but I'll leave this here in case it is useful to anyone. 
+
 MAJD is a utility used to test a JSON API. The kind of JSON API it supports right now is where you do an HTTP POST with a JSON document as the body of the request. Then, the server responds with another JSON document as the response body. Different methods are specified via URL.
 
 To use, run test.py on the command line. It will run through all the tests in the tests directory. If the tests pass, this will output nothing. As soon as one fails, it will stop and display the error.
